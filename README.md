@@ -16,7 +16,7 @@ Components
 How It Works
 
 - The first five button presses turn the LEDs ON one by one.
-- The next five presses turn the LEDs OFF in reverse order.
+- The next five presses turn the LEDs OFF one by one.
 - The sequence then restarts.
 
 Tools Used
