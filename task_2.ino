@@ -47,24 +47,24 @@ void loop() {
       // move to the next sequence
       step_counter++;
 
-      // Turn LEDs on from 1 to 5 one by one
+      // Turn LEDs on from 1 to 5 one by one (t=1 to t=5)
       if (step_counter >= 1 && step_counter <= TOTAL_LEDS) {
 
-      int pin = FIRST_LED + step_counter - 1;
+      int pin = FIRST_LED + (step_counter - 1);
       LED_PORT |= (1 << pin);
 
       }
 
-      // Turn LEDs off from 5 to 1
+      // Turn LEDs off from 1 to 5 one by one (t=6 to t=10)
       else if (step_counter > TOTAL_LEDS && step_counter <= 2 * TOTAL_LEDS) {
 
-      int pin = FIRST_LED + (2 * TOTAL_LEDS) - step_counter;
+      int pin = FIRST_LED + (step_counter - TOTAL_LEDS - 1);
       LED_PORT &= ~(1 << pin);
 
      }
 
       // Restart sequence
-      else {
+      if (step_counter >= 2 * TOTAL_LEDS) {
       step_counter = 0;
       }
 
